@@ -1,11 +1,10 @@
+import { motion } from "framer-motion";
 import { Pages } from "../../../../../shared/types";
 import Facebook from "../../../../../assets/icons/facebook.svg";
 import Twitter from "../../../../../assets/icons/twitter.svg";
 import Bars from "../../../../../assets/icons/bars.svg";
-import useMediaQuery from "../../../../../hooks/useMediaQuery";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "./Link";
-import { tr } from "framer-motion/client";
 
 type Props = {
   openPage: Pages;
@@ -14,16 +13,36 @@ type Props = {
 
 const Navbar = ({ openPage, setOpenPage }: Props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setHidden(false);
+        setOpenPage(Pages.NewBook);
+      } else {
+        setHidden(true);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
   return (
     <nav>
       <div
         className={`${
-          toggleMenu
-            ? "fixed top-0 z-40 h-full w-full bg-primary-100 drop-shadow-xl text-white"
-            : ""
+          toggleMenu ? "fixed top-0 z-40 h-full w-full bg-primary-100 " : ""
         }`}
       >
-        <div className="mx-auto w-5/6 md:flex flex-row items-center justify-between py-12 tracking-widest">
+        <motion.div
+          className="sticky top-0 mx-auto w-5/6 mb-4 flex flex-row items-center justify-between py-12 tracking-widest"
+          variants={{
+            visible: { y: 0 },
+            hidden: { y: "-100%" },
+          }}
+          animate={hidden ? "hidden" : "visible"}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+        >
           <div className="flex flex-row items-center gap-10 basis-1">
             <img
               src={Facebook}
@@ -40,34 +59,44 @@ const Navbar = ({ openPage, setOpenPage }: Props) => {
           <button onClick={() => setToggleMenu(!toggleMenu)}>
             <img src={Bars} alt="bars" className="w-[20px] h-[20px]" />
           </button>
-        </div>
+        </motion.div>
         {toggleMenu && (
           <div className="mx-auto flex flex-col justify-center items-center gap-10 font-bold text-3xl">
             <Link
               page="New Book"
               openPage={openPage}
               setOpenPage={setOpenPage}
+              setToggleMenu={setToggleMenu}
             />
             <Link
               page="Lessons"
               openPage={openPage}
               setOpenPage={setOpenPage}
+              setToggleMenu={setToggleMenu}
             />
             <Link
               page="Featured"
               openPage={openPage}
               setOpenPage={setOpenPage}
+              setToggleMenu={setToggleMenu}
             />
-            <Link page="Videos" openPage={openPage} setOpenPage={setOpenPage} />
+            <Link
+              page="Videos"
+              openPage={openPage}
+              setOpenPage={setOpenPage}
+              setToggleMenu={setToggleMenu}
+            />
             <Link
               page="Newsletter"
               openPage={openPage}
               setOpenPage={setOpenPage}
+              setToggleMenu={setToggleMenu}
             />
             <Link
               page="Inspiration"
               openPage={openPage}
               setOpenPage={setOpenPage}
+              setToggleMenu={setToggleMenu}
             />
           </div>
         )}

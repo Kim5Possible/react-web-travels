@@ -6,3 +6,8 @@ export enum Pages {
   Newsletter = "newsletter",
   Inspiration = "inspiration",
 }
+
+export interface VideoImageType {
+  src: string;
+  title: string;
+}

@@ -35,4 +35,6 @@ body,
   height: 100%;
   width: 100%;
   font-family: "SFPro", sans-serif;
+  color: white;
+  line-height: 1.5rem;
 }

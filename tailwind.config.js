@@ -4,18 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        "gray-20": "#F8F4EB",
-        "gray-50": "#EFE6E6",
-        "gray-100": "#DFCCCC",
-        "gray-500": "#5E0000",
+        "gray-100": "#1C2E3D",
+
         "primary-100": "#E8594E",
-        "primary-300": "#FFA6A3",
-        "primary-500": "#FF6B66",
-        "secondary-400": "#FFCD5B",
-        "secondary-500": "#FFC132",
+        "primary-200": "#73AFBA",
+        "secondary-100": "#3C4A51",
       },
       fontFamily: {
-        dmsans: ["DM Sans", "sans-serif"],
+        sfpro: ["SFPro", "sans-serif"],
+        sftext: ["SFText", "sans-serif"],
       },
       content: {},
     },
