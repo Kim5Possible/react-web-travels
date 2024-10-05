@@ -12,8 +12,8 @@ type Props = {
 };
 
 const Navbar = ({ openPage, setOpenPage }: Props) => {
-  const [toggleMenu, setToggleMenu] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,18 +24,25 @@ const Navbar = ({ openPage, setOpenPage }: Props) => {
         setHidden(true);
       }
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   });
+
+  useEffect(() => {
+    toggleMenu
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
+  }, [toggleMenu]);
   return (
     <nav>
       <div
         className={`${
-          toggleMenu ? "fixed top-0 z-40 h-full w-full bg-primary-100 " : ""
+          toggleMenu ? "fixed top-0 z-40 h-[100vh] w-full bg-primary-100 " : ""
         }`}
       >
         <motion.div
-          className="sticky top-0 mx-auto w-5/6 mb-4 flex flex-row items-center justify-between py-12 tracking-widest"
+          className=" sticky top-0 mx-auto w-5/6 mb-4 flex flex-row items-center justify-between py-12 tracking-widest"
           variants={{
             visible: { y: 0 },
             hidden: { y: "-100%" },
@@ -61,40 +68,34 @@ const Navbar = ({ openPage, setOpenPage }: Props) => {
           </button>
         </motion.div>
         {toggleMenu && (
-          <div className="mx-auto flex flex-col justify-center items-center gap-10 font-bold text-3xl">
+          <div className=" mx-auto flex flex-col justify-center items-center gap-10 font-bold text-3xl">
             <Link
               page="New Book"
-              openPage={openPage}
               setOpenPage={setOpenPage}
               setToggleMenu={setToggleMenu}
             />
             <Link
               page="Lessons"
-              openPage={openPage}
               setOpenPage={setOpenPage}
               setToggleMenu={setToggleMenu}
             />
             <Link
               page="Featured"
-              openPage={openPage}
               setOpenPage={setOpenPage}
               setToggleMenu={setToggleMenu}
             />
             <Link
               page="Videos"
-              openPage={openPage}
               setOpenPage={setOpenPage}
               setToggleMenu={setToggleMenu}
             />
             <Link
               page="Newsletter"
-              openPage={openPage}
               setOpenPage={setOpenPage}
               setToggleMenu={setToggleMenu}
             />
             <Link
               page="Inspiration"
-              openPage={openPage}
               setOpenPage={setOpenPage}
               setToggleMenu={setToggleMenu}
             />

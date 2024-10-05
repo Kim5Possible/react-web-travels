@@ -20,7 +20,7 @@ const Images: Array<VideoImageType> = [
 
 const Lessons = ({ setOpenPage }: Props) => {
   return (
-    <section id="lessons" className="mx-auto w-11/12 my-24 text-gray-100">
+    <section id="lessons" className="mx-auto w-11/12 my-36 text-gray-100">
       <motion.div onViewportEnter={() => setOpenPage(Pages.Lessons)}>
         <div className=" max-w-[600px] mb-16">
           <TextTitle>Become a travel pro in one easy lesson</TextTitle>

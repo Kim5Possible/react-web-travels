@@ -30,9 +30,9 @@ const videos: Array<VideoImageType> = [
 
 const NewBook = ({ openPage, setOpenPage }: Props) => {
   return (
-    <div className=" bg-[url('/src/assets/first-bg.jpg')] bg-no-repeat bg-center bg-cover mb-36">
+    <div className="bg-[url('/src/assets/first-bg.jpg')] bg-no-repeat bg-center bg-cover">
       <Navbar openPage={openPage} setOpenPage={setOpenPage} />
-      <section id="newbook" className="mx-auto w-11/12 my-24">
+      <section id="newbook" className="mx-auto w-11/12 mt-24">
         <motion.div
           className="mb-36"
           onViewportEnter={() => setOpenPage(Pages.NewBook)}
@@ -43,7 +43,7 @@ const NewBook = ({ openPage, setOpenPage }: Props) => {
           <div className="max-w-[300px]">
             <TextTitle>Mother earth hosts our travels</TextTitle>
           </div>
-          <p className="mb-10 text-xs max-w-11 max-w-96 max-w-md max-w-lg">
+          <p className="mb-10 text-xs max-w-sm">
             There are not many cities that have experienced such social and
             political extremes in recent history as Amsterdam. In the 20th
             century alone, Amsterdam faced the atrocities of war for the first

@@ -3,6 +3,7 @@ import { Pages } from "../shared/types";
 import NewBook from "./components/NewBook/NewBook";
 import Lessons from "./components/Lessons/Lessons";
 import Featured from "./components/Featured/Featured";
+import FeaturedVideos from "./components/FeaturedVideos/FeaturedVideos";
 
 const Travels: React.FC = () => {
   const [openPage, setOpenPage] = useState<Pages>(Pages.NewBook);
@@ -11,6 +12,7 @@ const Travels: React.FC = () => {
       <NewBook openPage={openPage} setOpenPage={setOpenPage} />
       <Lessons setOpenPage={setOpenPage} />
       <Featured setOpenPage={setOpenPage} />
+      <FeaturedVideos setOpenPage={setOpenPage} />
     </div>
   );
 };
