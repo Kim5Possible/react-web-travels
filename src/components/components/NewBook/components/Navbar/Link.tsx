@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Pages } from "../../../../../shared/types";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 

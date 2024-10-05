@@ -61,7 +61,7 @@ const Video = ({ videos }: Props) => {
     >
       <AnimatePresence initial={false} mode="wait" custom={direction}>
         <motion.video
-          className={` bottom-full rounded-t-sm left-0 right-0 ${
+          className={` bottom-full rounded-t-md left-0 right-0 ${
             isAboveMediumScreens ? "absolute" : "mt-5"
           }`}
           key={currentIndex}
@@ -79,7 +79,7 @@ const Video = ({ videos }: Props) => {
           custom={direction}
         />
       </AnimatePresence>
-      <div className="bg-primary-200 w-full h-[70px] flex justify-between items-center rounded-r-sm">
+      <div className="bg-primary-200 w-full h-[80px] flex justify-between items-center rounded-r-sm">
         <button onClick={handlePrevious} className="pl-8">
           <img className="w-[20px] h-[20px]" src={ArrowLeft} alt="arrow-left" />
         </button>

@@ -6,6 +6,7 @@ import video1 from "../../../assets/videos/1.mp4";
 import video2 from "../../../assets/videos/2.mp4";
 import video3 from "../../../assets/videos/3.mp4";
 import Video from "./Video";
+import TextTitle from "../../../shared/TextTitles";
 
 type Props = {
   openPage: Pages;
@@ -31,7 +32,7 @@ const NewBook = ({ openPage, setOpenPage }: Props) => {
   return (
     <div className=" bg-[url('/src/assets/first-bg.jpg')] bg-no-repeat bg-center bg-cover mb-36">
       <Navbar openPage={openPage} setOpenPage={setOpenPage} />
-      <section id="newbook" className="mx-auto xs:w-11/12 md:w-5/6 my-24">
+      <section id="newbook" className="mx-auto w-11/12 my-24">
         <motion.div
           className="mb-36"
           onViewportEnter={() => setOpenPage(Pages.NewBook)}
@@ -39,9 +40,9 @@ const NewBook = ({ openPage, setOpenPage }: Props) => {
           <span className="inline-block uppercase text-xs font-bold mb-10 py-3 px-8 bg-gray-100 rounded-full bg-opacity-70">
             New Book
           </span>
-          <h1 className="max-w-[300px] text-5xl leading-tight font-bold mb-10 apitalize">
-            Mother earth hosts our travels
-          </h1>
+          <div className="max-w-[300px]">
+            <TextTitle>Mother earth hosts our travels</TextTitle>
+          </div>
           <p className="mb-10 text-xs max-w-11 max-w-96 max-w-md max-w-lg">
             There are not many cities that have experienced such social and
             political extremes in recent history as Amsterdam. In the 20th
@@ -56,7 +57,7 @@ const NewBook = ({ openPage, setOpenPage }: Props) => {
         <div className="sm:flex drop-shadow-sm">
           <label
             htmlFor="search"
-            className="flex justify-between items-center px-8 w-full h-[70px] basis-4/6 bg-white text-gray-100 rounded-l-sm "
+            className="flex justify-between items-center px-8 w-full h-[80px] basis-4/6 bg-white text-gray-100 rounded-l-sm "
           >
             <input
               className="w-full placeholder:text-gray-100 placeholder:text-xs focus:outline-none"
