@@ -32,7 +32,7 @@ const Featured = () => {
   return (
     <section className=" bg-[url('/src/assets/featured.jpg')] bg-no-repeat bg-cover bg-center sm:h-[750px]">
       <motion.div className="shadow-[inset_0_-300px_400px_100px_rgba(28,46,61,0.5),_inset_0_-100px_100px_0_rgba(0,0,0,0.9)]">
-        <div className=" sm:flex justify-between">
+        <div className="sm:flex justify-between">
           <div
             id="featured"
             className="mt-36 pt-24 sm:mx-auto sm:w-6/12 md:px-0 xs:px-10 "

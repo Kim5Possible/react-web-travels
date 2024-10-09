@@ -4,6 +4,7 @@ import Lessons from "./components/Lessons/Lessons";
 import Featured from "./components/Featured/Featured";
 import FeaturedVideos from "./components/FeaturedVideos/FeaturedVideos";
 import Newsletter from "./components/Newsletter/Newsletter";
+import Inspirations from "./components/Inspirations/Inspirations";
 
 const Travels: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Travels: React.FC = () => {
       <Featured />
       <FeaturedVideos />
       <Newsletter />
+      <Inspirations />
     </div>
   );
 };
