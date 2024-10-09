@@ -2,7 +2,7 @@ export enum Pages {
   NewBook = "newbook",
   Lessons = "lessons",
   Featured = "featured",
-  FeaturedVideos = "featuredvideos",
+  Videos = "videos",
   Newsletter = "newsletter",
   Inspiration = "inspiration",
 }

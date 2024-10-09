@@ -1,16 +1,9 @@
-import { Pages } from "../../../shared/types";
 import { motion } from "framer-motion";
 import TextTitle from "../../../shared/TextTitles";
 import ava1 from "../../../assets/ava-1.jpg";
 import ava2 from "../../../assets/ava-2.jpg";
 import ava3 from "../../../assets/ava-3.jpg";
 import ava4 from "../../../assets/ava-4.jpg";
-import { image } from "framer-motion/client";
-import useMediaQuery from "../../../hooks/useMediaQuery";
-
-type Props = {
-  setOpenPage: (page: Pages) => void;
-};
 
 const People = [
   {
@@ -35,18 +28,15 @@ const People = [
   },
 ];
 
-const Featured = ({ setOpenPage }: Props) => {
+const Featured = () => {
   return (
-    <section
-      id="featured"
-      className="bg-[url('/src/assets/featured.jpg')] bg-no-repeat bg-cover bg-center sm:h-[650px]"
-    >
-      <motion.div
-        className="shadow-[inset_0_-300px_400px_100px_rgba(28,46,61,0.5),_inset_0_-100px_100px_0_rgba(0,0,0,0.9)]"
-        onViewportEnter={() => setOpenPage(Pages.Featured)}
-      >
+    <section className=" bg-[url('/src/assets/featured.jpg')] bg-no-repeat bg-cover bg-center sm:h-[750px]">
+      <motion.div className="shadow-[inset_0_-300px_400px_100px_rgba(28,46,61,0.5),_inset_0_-100px_100px_0_rgba(0,0,0,0.9)]">
         <div className=" sm:flex justify-between">
-          <div className="pt-40 sm:mx-auto sm:w-6/12 md:px-0 xs:px-10 ">
+          <div
+            id="featured"
+            className="mt-36 pt-24 sm:mx-auto sm:w-6/12 md:px-0 xs:px-10 "
+          >
             <span className="inline-block uppercase text-xs font-bold mb-10 py-3 px-8 bg-primary-100 rounded-full ">
               featured
             </span>
@@ -62,7 +52,7 @@ const Featured = ({ setOpenPage }: Props) => {
               Read article
             </button>
           </div>
-          <div className="bg-secondary-100 bg-opacity-90 py-28 pl-20 h-[650px] overflow-y-scroll">
+          <div className="bg-secondary-100 bg-opacity-90 py-28 pl-20 h-[750px] overflow-y-scroll">
             <TextTitle>
               Featured <br />
               stories

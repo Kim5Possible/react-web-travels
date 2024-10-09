@@ -26,6 +26,12 @@ const Video = ({ videos }: Props) => {
     );
   };
 
+  const swipePower = (offset: number, velocity: number) => {
+    // calculate swipe power based on offset and velocity
+    return Math.abs(offset) * velocity;
+  };
+  const swipeConfidenceThreshold = 100;
+
   const variants = {
     initial: (direction: number) => {
       return {
@@ -61,7 +67,7 @@ const Video = ({ videos }: Props) => {
     >
       <AnimatePresence initial={false} mode="wait" custom={direction}>
         <motion.video
-          className={` bottom-full rounded-t-md left-0 right-0 ${
+          className={` bottom-full rounded-t-md left-0 right-0 cursor-grab active:cursor-grabbing ${
             isAboveMediumScreens ? "absolute" : "mt-5"
           }`}
           key={currentIndex}
@@ -71,6 +77,17 @@ const Video = ({ videos }: Props) => {
           muted
           onEnded={() => {
             handleNext();
+          }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipe = swipePower(offset.x, velocity.x);
+            if (swipe < -swipeConfidenceThreshold) {
+              handleNext();
+            } else if (swipe > swipeConfidenceThreshold) {
+              handlePrevious();
+            }
           }}
           variants={variants}
           initial="initial"

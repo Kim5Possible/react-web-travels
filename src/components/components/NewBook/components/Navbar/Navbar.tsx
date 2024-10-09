@@ -1,17 +1,11 @@
 import { motion } from "framer-motion";
-import { Pages } from "../../../../../shared/types";
 import Facebook from "../../../../../assets/icons/facebook.svg";
 import Twitter from "../../../../../assets/icons/twitter.svg";
 import Bars from "../../../../../assets/icons/bars.svg";
 import { useEffect, useState } from "react";
 import Link from "./Link";
 
-type Props = {
-  openPage: Pages;
-  setOpenPage: (page: Pages) => void;
-};
-
-const Navbar = ({ openPage, setOpenPage }: Props) => {
+const Navbar = () => {
   const [hidden, setHidden] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
 
@@ -19,7 +13,6 @@ const Navbar = ({ openPage, setOpenPage }: Props) => {
     const handleScroll = () => {
       if (window.scrollY === 0) {
         setHidden(false);
-        setOpenPage(Pages.NewBook);
       } else {
         setHidden(true);
       }
@@ -69,36 +62,12 @@ const Navbar = ({ openPage, setOpenPage }: Props) => {
         </motion.div>
         {toggleMenu && (
           <div className=" mx-auto flex flex-col justify-center items-center gap-10 font-bold text-3xl">
-            <Link
-              page="New Book"
-              setOpenPage={setOpenPage}
-              setToggleMenu={setToggleMenu}
-            />
-            <Link
-              page="Lessons"
-              setOpenPage={setOpenPage}
-              setToggleMenu={setToggleMenu}
-            />
-            <Link
-              page="Featured"
-              setOpenPage={setOpenPage}
-              setToggleMenu={setToggleMenu}
-            />
-            <Link
-              page="Videos"
-              setOpenPage={setOpenPage}
-              setToggleMenu={setToggleMenu}
-            />
-            <Link
-              page="Newsletter"
-              setOpenPage={setOpenPage}
-              setToggleMenu={setToggleMenu}
-            />
-            <Link
-              page="Inspiration"
-              setOpenPage={setOpenPage}
-              setToggleMenu={setToggleMenu}
-            />
+            <Link page="New Book" setToggleMenu={setToggleMenu} />
+            <Link page="Lessons" setToggleMenu={setToggleMenu} />
+            <Link page="Featured" setToggleMenu={setToggleMenu} />
+            <Link page="Videos" setToggleMenu={setToggleMenu} />
+            <Link page="Newsletter" setToggleMenu={setToggleMenu} />
+            <Link page="Inspiration" setToggleMenu={setToggleMenu} />
           </div>
         )}
       </div>

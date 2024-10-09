@@ -1,4 +1,4 @@
-import { Pages, VideoImageType } from "../../../shared/types";
+import { VideoImageType } from "../../../shared/types";
 import { motion } from "framer-motion";
 import Image1 from "../../../assets/become-1.jpg";
 import Image2 from "../../../assets/become-2.jpg";
@@ -7,10 +7,6 @@ import Image4 from "../../../assets/become-4.jpg";
 import Card from "./Card";
 import TextTitle from "../../../shared/TextTitles";
 
-type Props = {
-  setOpenPage: (page: Pages) => void;
-};
-
 const Images: Array<VideoImageType> = [
   { src: Image1, title: "Vacation with experts" },
   { src: Image2, title: "Vacation with experts" },
@@ -18,10 +14,10 @@ const Images: Array<VideoImageType> = [
   { src: Image4, title: "Vacation with experts" },
 ];
 
-const Lessons = ({ setOpenPage }: Props) => {
+const Lessons = () => {
   return (
     <section id="lessons" className="mx-auto w-11/12 my-36 text-gray-100">
-      <motion.div onViewportEnter={() => setOpenPage(Pages.Lessons)}>
+      <motion.div>
         <div className=" max-w-[600px] mb-16">
           <TextTitle>Become a travel pro in one easy lesson</TextTitle>
         </div>
