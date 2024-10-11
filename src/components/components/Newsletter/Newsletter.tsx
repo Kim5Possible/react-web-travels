@@ -19,7 +19,7 @@ const Newsletter = (props: Props) => {
     }
   };
   return (
-    <section className="xs:flex xs:flex-col xs:items-center relative bg-[url('/src/assets/newsletter-cover.jpg')] bg-no-repeat bg-cover bg-center sm:h-[750px] xs:h-[583px]">
+    <section className="mb-48 xs:flex xs:flex-col xs:items-center relative bg-[url('/src/assets/newsletter-cover.jpg')] bg-no-repeat bg-cover bg-center sm:h-[750px] xs:h-[583px]">
       <div className="w-11/12 mx-auto flex flex-col sm:justify-end sm:items-start sm:text-left xs:text-center h-full w-full px-10 py-10">
         <div id="newsletter" className=" sm:w-96 xs:w-full xs:pt-16">
           <TextTitle>Sign Up Our Newsletter</TextTitle>
