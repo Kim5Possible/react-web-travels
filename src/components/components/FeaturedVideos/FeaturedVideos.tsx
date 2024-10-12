@@ -1,11 +1,9 @@
 import TextTitle from "../../../shared/TextTitles";
 import { VideoImageType } from "../../../shared/types";
-import { motion } from "framer-motion";
 import image1 from "../../../assets/videos-slider-1.jpg";
 import image2 from "../../../assets/videos-slider-2.jpg";
 import image3 from "../../../assets/videos-slider-3.jpg";
 import Card from "./Card";
-import { useRef, useState } from "react";
 
 const images: Array<VideoImageType> = [
   {

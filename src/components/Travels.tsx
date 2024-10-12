@@ -1,10 +1,10 @@
-import { Pages } from "../shared/types";
 import NewBook from "./components/NewBook/NewBook";
 import Lessons from "./components/Lessons/Lessons";
 import Featured from "./components/Featured/Featured";
 import FeaturedVideos from "./components/FeaturedVideos/FeaturedVideos";
 import Newsletter from "./components/Newsletter/Newsletter";
 import Inspirations from "./components/Inspirations/Inspirations";
+import Footer from "./components/Footer/Footer";
 
 const Travels: React.FC = () => {
   return (
@@ -15,6 +15,7 @@ const Travels: React.FC = () => {
       <FeaturedVideos />
       <Newsletter />
       <Inspirations />
+      <Footer />
     </div>
   );
 };

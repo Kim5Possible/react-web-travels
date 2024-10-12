@@ -11,3 +11,12 @@ export interface VideoImageType {
   src: string;
   title: string;
 }
+
+export interface InspirationType {
+  src: string;
+  title: string;
+  text?: string;
+  featured?: string;
+  playButton?: boolean;
+  avatar: string[];
+}

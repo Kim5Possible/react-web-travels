@@ -2,9 +2,7 @@ import TextTitle from "../../../shared/TextTitles";
 import { useForm } from "react-hook-form";
 import Modal from "./Modal";
 
-type Props = {};
-
-const Newsletter = (props: Props) => {
+const Newsletter = () => {
   const inputStyles = ` w-full mt-7 px-3 rounded-lg focus:outline-none text-xs text-gray-100 bg-white py-3 placeholder:text-[10px] placeholder-gray-100 placeholder:opacity-70 placeholder:font-bold border-b-2 border-primary-200 border-opacity-30 focus:border-primary-100 focus:border-opacity-40`;
   const {
     register,
@@ -20,7 +18,7 @@ const Newsletter = (props: Props) => {
   };
   return (
     <section className="mb-48 xs:flex xs:flex-col xs:items-center relative bg-[url('/src/assets/newsletter-cover.jpg')] bg-no-repeat bg-cover bg-center sm:h-[750px] xs:h-[583px]">
-      <div className="w-11/12 mx-auto flex flex-col sm:justify-end sm:items-start sm:text-left xs:text-center h-full w-full px-10 py-10">
+      <div className="w-11/12 mx-auto flex flex-col sm:justify-end sm:items-start sm:text-left xs:text-center h-full  px-10 py-10">
         <div id="newsletter" className=" sm:w-96 xs:w-full xs:pt-16">
           <TextTitle>Sign Up Our Newsletter</TextTitle>
         </div>
@@ -96,11 +94,12 @@ const Newsletter = (props: Props) => {
           </div>
         </div>
 
-        <div className="rounded-b-xl w-full text-center py-6 uppercase font-bold text-xs bg-primary-200 hover:bg-primary-100 duration-300 ">
-          <button type="submit" className="uppercase w-full rounded-b-xl">
-            Sign up now
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="rounded-b-xl w-full text-center py-6 uppercase font-bold text-xs bg-primary-200 hover:bg-primary-100 duration-300 "
+        >
+          Sign up now
+        </button>
       </form>
     </section>
   );

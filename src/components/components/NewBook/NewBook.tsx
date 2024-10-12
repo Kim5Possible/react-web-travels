@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { VideoImageType } from "../../../shared/types";
 import Navbar from "./components/Navbar/Navbar";
 import Find from "../../../assets/icons/find.svg";
