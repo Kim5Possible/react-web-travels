@@ -2,14 +2,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import ArrowLeft from "../../../assets/icons/arrow-left.svg";
 import ArrowRight from "../../../assets/icons/arrow-right.svg";
 import { useState } from "react";
-import useMediaQuery from "../../../hooks/useMediaQuery";
 
 type Props = {
   videos: { src: string; title: string }[];
 };
 
 const Video = ({ videos }: Props) => {
-  const isAboveMediumScreens = useMediaQuery("(min-width: 768px)");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -27,7 +25,6 @@ const Video = ({ videos }: Props) => {
   };
 
   const swipePower = (offset: number, velocity: number) => {
-    // calculate swipe power based on offset and velocity
     return Math.abs(offset) * velocity;
   };
   const swipeConfidenceThreshold = 100;
@@ -60,15 +57,10 @@ const Video = ({ videos }: Props) => {
   };
 
   return (
-    <div
-      className={`relative  md:basis-2/6 sm:basis-4/6  ${
-        isAboveMediumScreens ? "relative" : ""
-      }`}
-    >
+    <div className={`sm:relative md:basis-2/6 sm:basis-4/6 `}>
       <AnimatePresence initial={false} mode="wait" custom={direction}>
         <motion.video
-          className={` bottom-full rounded-t-md left-0 right-0 cursor-grab active:cursor-grabbing ${
-            isAboveMediumScreens ? "absolute" : "mt-5"
+          className={` bottom-full rounded-t-md left-0 right-0 cursor-grab active:cursor-grabbing sm:absolute xs:mt-5 sm:mt-0"
           }`}
           key={currentIndex}
           src={videos[currentIndex].src}

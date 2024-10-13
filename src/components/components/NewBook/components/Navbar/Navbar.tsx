@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Facebook from "../../../../../assets/icons/facebook.svg";
 import Twitter from "../../../../../assets/icons/twitter.svg";
-import Bars from "../../../../../assets/icons/bars.svg";
 import { useEffect, useState } from "react";
 import Link from "./Link";
 import { MenuButton } from "./MenuButton";
@@ -59,9 +58,6 @@ const Navbar = () => {
             />
           </div>
           <div className="uppercase font-bold text-white">Mitravel</div>
-          {/* <button onClick={() => setToggleMenu(!toggleMenu)}>
-            <img src={Bars} alt="bars" className="w-[20px] h-[20px]" />
-          </button> */}
           <MenuButton
             toggleMenu={toggleMenu}
             onClick={() => setToggleMenu(!toggleMenu)}
