@@ -5,10 +5,10 @@ type Props = {
   className?: string;
 };
 
-const TextTitle = ({ children, className }: Props) => {
+const Text = ({ children, className }: Props) => {
   return (
-    <motion.h1
-      className={`md:text-5xl sm:text-4xl xs:text-3xl leading-tight font-bold mb-10 capitalize ${className}`}
+    <motion.p
+      className={`mb-10 text-xs ${className}`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
@@ -19,8 +19,8 @@ const TextTitle = ({ children, className }: Props) => {
       }}
     >
       {children}
-    </motion.h1>
+    </motion.p>
   );
 };
 
-export default TextTitle;
+export default Text;

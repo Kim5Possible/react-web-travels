@@ -10,6 +10,7 @@ import ava1 from "../../../assets/avatar-1.jpg";
 import ava2 from "../../../assets/avatar-2.jpg";
 import Card from "./Card";
 import { InspirationType } from "../../../shared/types";
+import Text from "../../../shared/Text";
 
 const images: Array<InspirationType> = [
   {
@@ -67,11 +68,11 @@ const Inspirations = () => {
     >
       <div className="mb-16 text-center">
         <TextTitle>Inspirations</TextTitle>
-        <p className="text-xs mx-auto max-w-md opacity-70">
+        <Text className="mx-auto max-w-md ">
           The state of Utah in the United States is home to lots of beautiful
           National Parks, & Bryce Canyon National Park ranks as three of the
           most magnificent & awe inspiring.
-        </p>
+        </Text>
       </div>
       <div className="grid sm:grid-cols-3 xs:grid-cols-2 sm:grid-rows-subgrid xs:grid-rows-3 auto-rows-[0] gap-4 overflow-y-hidden">
         {images.map((image, index) => (

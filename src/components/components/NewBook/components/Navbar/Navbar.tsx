@@ -4,6 +4,7 @@ import Twitter from "../../../../../assets/icons/twitter.svg";
 import Bars from "../../../../../assets/icons/bars.svg";
 import { useEffect, useState } from "react";
 import Link from "./Link";
+import { MenuButton } from "./MenuButton";
 
 const Navbar = () => {
   const [hidden, setHidden] = useState(false);
@@ -31,7 +32,9 @@ const Navbar = () => {
     <nav>
       <div
         className={`${
-          toggleMenu ? "fixed top-0 z-40 h-[100vh] w-full bg-primary-100 " : ""
+          toggleMenu
+            ? "fixed top-0 z-40 h-[100vh] w-full pr-5 bg-primary-100 "
+            : ""
         }`}
       >
         <motion.div
@@ -56,12 +59,16 @@ const Navbar = () => {
             />
           </div>
           <div className="uppercase font-bold text-white">Mitravel</div>
-          <button onClick={() => setToggleMenu(!toggleMenu)}>
+          {/* <button onClick={() => setToggleMenu(!toggleMenu)}>
             <img src={Bars} alt="bars" className="w-[20px] h-[20px]" />
-          </button>
+          </button> */}
+          <MenuButton
+            toggleMenu={toggleMenu}
+            onClick={() => setToggleMenu(!toggleMenu)}
+          />
         </motion.div>
         {toggleMenu && (
-          <div className=" mx-auto flex flex-col justify-center items-center gap-10 font-bold text-3xl">
+          <div className="pl-5 mx-auto flex flex-col justify-center items-center gap-10 font-bold text-3xl">
             <Link page="New Book" setToggleMenu={setToggleMenu} />
             <Link page="Lessons" setToggleMenu={setToggleMenu} />
             <Link page="Featured" setToggleMenu={setToggleMenu} />

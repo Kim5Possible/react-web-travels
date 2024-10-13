@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 type Props = {
   src: string;
@@ -22,8 +23,12 @@ const Card = ({
 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div
+    <motion.div
       key={index}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.3 }}
       className={`relative  ${
         index === 0
           ? "sm:col-span-2 xs:col-span-1"
@@ -72,7 +77,7 @@ const Card = ({
         )}
 
         {playButton && (
-          <button className="absolute top-8 left-8">
+          <a className="absolute top-8 left-8 cursor-pointer" href="#">
             <motion.div
               className="md:w-14 md:h-14 xs:w-10"
               onHoverStart={() => setIsHovered(true)}
@@ -80,14 +85,16 @@ const Card = ({
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.4 }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <path
-                  fill={`${isHovered ? "#E8594E" : "white"}`}
-                  d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9l0-176c0-8.7 4.7-16.7 12.3-20.9z"
-                />
-              </svg>
+              <AnchorLink href="#newbook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path
+                    fill={`${isHovered ? "#E8594E" : "white"}`}
+                    d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9l0-176c0-8.7 4.7-16.7 12.3-20.9z"
+                  />
+                </svg>
+              </AnchorLink>
             </motion.div>
-          </button>
+          </a>
         )}
 
         {avatar && (
@@ -108,7 +115,7 @@ const Card = ({
         )}
       </div>
       <img src={src} alt={title} className="w-full h-full rounded-lg " />
-    </div>
+    </motion.div>
   );
 };
 

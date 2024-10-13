@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import PlayIcon from "../../../assets/icons/play.svg";
 import { useEffect, useState } from "react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 type Props = {
   images: { src: string; title: string }[];
@@ -73,9 +74,12 @@ const Card = ({ images }: Props) => {
                 }
                 alt={image.title}
               />
-              <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 pl-2 py-3 rounded-full bg-primary-100 flex justify-center items-center">
+              <AnchorLink
+                href="#newbook"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 pl-2 py-3 rounded-full bg-primary-100 flex justify-center items-center"
+              >
                 <img src={PlayIcon} alt="" />
-              </button>
+              </AnchorLink>
               <span className="absolute bottom-5 left-5 text-white text-2xl">
                 {image.title}
               </span>

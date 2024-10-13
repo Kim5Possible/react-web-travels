@@ -1,9 +1,12 @@
+import { motion } from "framer-motion";
 import TextTitle from "../../../shared/TextTitles";
 import { useForm } from "react-hook-form";
-import Modal from "./Modal";
+import Modal from "../../../shared/Modal";
+import Text from "../../../shared/Text";
 
 const Newsletter = () => {
   const inputStyles = ` w-full mt-7 px-3 rounded-lg focus:outline-none text-xs text-gray-100 bg-white py-3 placeholder:text-[10px] placeholder-gray-100 placeholder:opacity-70 placeholder:font-bold border-b-2 border-primary-200 border-opacity-30 focus:border-primary-100 focus:border-opacity-40`;
+
   const {
     register,
     trigger,
@@ -22,18 +25,29 @@ const Newsletter = () => {
         <div id="newsletter" className=" sm:w-96 xs:w-full xs:pt-16">
           <TextTitle>Sign Up Our Newsletter</TextTitle>
         </div>
-        <p className="mb-10 text-xs  md:max-w-96 sm:max-w-60">
+        <Text className="md:max-w-96 sm:max-w-60">
           The state of Utah in the United States is home to lots of beautiful
           National Parks, & Bryce Canyon National Park ranks as three of the
           most magnificent & awe inspiring.
-        </p>
+        </Text>
       </div>
-      <form
+      <motion.form
         target="_blank"
         onSubmit={onSubmit}
         // action="https://formsubmit.co/your@email.ru"
         // method="POST"
         className="rounded-xl sm:absolute md:right-20 sm:right-10  sm:-bottom-[64px] flex flex-col w-[400px] bg-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ type: "spring", bounce: 0.5, duration: 1.5 }}
+        variants={{
+          hidden: { opacity: 0, y: 60 },
+          visible: {
+            opacity: 1,
+            y: 0,
+          },
+        }}
       >
         <div className=" mx-14 my-10">
           <div className="relative">
@@ -100,7 +114,7 @@ const Newsletter = () => {
         >
           Sign up now
         </button>
-      </form>
+      </motion.form>
     </section>
   );
 };

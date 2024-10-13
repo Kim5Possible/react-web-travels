@@ -4,15 +4,20 @@ import { AnimatePresence, motion } from "framer-motion";
 type Props = {
   src: string;
   title: string;
+  index: number;
 };
 
-const Card = ({ src, title }: Props) => {
+const Card = ({ src, title, index }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <motion.div
       className="relative md:w-[24%] xs:w-[45%]"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5, delay: index * 0.3 }}
     >
       <AnimatePresence>
         {isHovered && (

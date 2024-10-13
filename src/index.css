@@ -38,3 +38,11 @@ body,
   color: white;
   line-height: 1.5rem;
 }
+
+::-moz-selection {
+  color: #e8594e;
+}
+
+::selection {
+  color: #e8594e;
+}

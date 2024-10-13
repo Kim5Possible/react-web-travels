@@ -1,9 +1,13 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import TextTitle from "../../../shared/TextTitles";
 import ava1 from "../../../assets/ava-1.jpg";
 import ava2 from "../../../assets/ava-2.jpg";
 import ava3 from "../../../assets/ava-3.jpg";
 import ava4 from "../../../assets/ava-4.jpg";
+import Text from "../../../shared/Text";
+import Button from "../../../shared/Button";
+import { useState } from "react";
+import Modal from "./Modal";
 
 const People = [
   {
@@ -29,30 +33,61 @@ const People = [
 ];
 
 const Featured = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <section className=" bg-[url('/src/assets/featured.jpg')] bg-no-repeat bg-cover bg-center sm:h-[750px]">
-      <motion.div className="shadow-[inset_0_-300px_400px_100px_rgba(28,46,61,0.5),_inset_0_-100px_100px_0_rgba(0,0,0,0.9)]">
+      <div className="shadow-[inset_0_-300px_400px_100px_rgba(28,46,61,0.5),_inset_0_-100px_100px_0_rgba(0,0,0,0.9)]">
         <div className="sm:flex justify-between">
           <div
             id="featured"
             className="mt-36 pt-24 sm:mx-auto sm:w-6/12 md:px-0 xs:px-10 "
           >
-            <span className="inline-block uppercase text-xs font-bold mb-10 py-3 px-8 bg-primary-100 rounded-full ">
+            <motion.span
+              className="select-none inline-block uppercase text-xs font-bold mb-10 py-3 px-8 bg-primary-100 rounded-full "
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
               featured
-            </span>
-            <div className="sm:max-w-[500px] xs:max-w-[350px]">
-              <TextTitle>How to fly a private jet on your next trip</TextTitle>
-            </div>
-            <p className="mb-10 text-xs  max-w-sm">
+            </motion.span>
+            <TextTitle>How to fly a private jet on your next trip</TextTitle>
+            <Text className=" max-w-sm">
               The state of Utah in the United States is home to lots of
               beautiful National Parks, & Bryce Canyon National Park ranks as
               three of the most magnificent & awe inspiring.
-            </p>
-            <button className="mb-8 px-20 py-6 uppercase font-bold text-xs bg-primary-200 rounded-lg hover:bg-primary-100 duration-300 ">
+            </Text>
+
+            <Button
+              className=" bg-primary-200  hover:bg-primary-100 mb-10"
+              onClick={() => setOpenModal(true)}
+            >
               Read article
-            </button>
+            </Button>
+
+            <AnimatePresence
+              initial={false}
+              mode="wait"
+              onExitComplete={() => null}
+            >
+              {openModal && <Modal setOpenModal={setOpenModal} />}
+            </AnimatePresence>
           </div>
-          <div className="bg-secondary-100 bg-opacity-90 py-28 pl-20 h-[750px] overflow-y-scroll">
+          <motion.div
+            className="bg-secondary-100 bg-opacity-90 py-28 pl-20 h-[750px] overflow-y-scroll"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+            variants={{
+              hidden: { opacity: 0, x: 100 },
+              visible: { opacity: 1, x: 0 },
+            }}
+          >
             <TextTitle>
               Featured <br />
               stories
@@ -77,9 +112,9 @@ const Featured = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

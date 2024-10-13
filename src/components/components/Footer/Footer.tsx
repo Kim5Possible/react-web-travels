@@ -1,9 +1,6 @@
-import { useForm } from "@refinedev/react-hook-form";
-
-import Modal from "../Newsletter/Modal";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import Modal from "../../../shared/Modal";
 import { useState } from "react";
-
-type Props = {};
 
 const footer: Array<{
   title: string;
@@ -12,39 +9,39 @@ const footer: Array<{
   {
     title: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Press", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Security", href: "#" },
-      { name: "Driver Centre", href: "#" },
+      { name: "About", href: "#lessons" },
+      { name: "Press", href: "#newbook" },
+      { name: "Blog", href: "#featured" },
+      { name: "Careers", href: "#newbook" },
+      { name: "Security", href: "#newbook" },
+      { name: "Driver Centre", href: "#newbook" },
     ],
   },
   {
     title: "Information",
     links: [
-      { name: "Our Story", href: "#" },
-      { name: "Recipes", href: "#" },
-      { name: "Nutrition", href: "#" },
-      { name: "Resources", href: "#" },
-      { name: "Newsletter", href: "#" },
-      { name: "Contact", href: "#" },
+      { name: "Our Story", href: "#newbook" },
+      { name: "Recipes", href: "#newbook" },
+      { name: "Nutrition", href: "#newbook" },
+      { name: "Resources", href: "#newbook" },
+      { name: "Newsletter", href: "#newsletter" },
+      { name: "Contact", href: "#newsletter" },
     ],
   },
   {
     title: "Information",
     links: [
-      { name: "Customer service", href: "#" },
-      { name: "Recommend a restaurant", href: "#" },
-      { name: "Sifnup a restaurant", href: "#" },
-      { name: "Jobs", href: "#" },
-      { name: "Press", href: "#" },
-      { name: "Terms of use", href: "#" },
+      { name: "Customer service", href: "#newbook" },
+      { name: "Recommend a restaurant", href: "#newbook" },
+      { name: "Sifnup a restaurant", href: "#newbook" },
+      { name: "Jobs", href: "#newbook" },
+      { name: "Press", href: "#newbook" },
+      { name: "Terms of use", href: "#newbook" },
     ],
   },
 ];
 
-const Footer = (props: Props) => {
+const Footer = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
@@ -77,7 +74,7 @@ const Footer = (props: Props) => {
                       className="mb-3 opacity-75 cursor-pointer hover:opacity-100"
                       key={index}
                     >
-                      <a href={link.href}>{link.name}</a>
+                      <AnchorLink href={link.href}>{link.name}</AnchorLink>
                     </li>
                   ))}
                 </ul>

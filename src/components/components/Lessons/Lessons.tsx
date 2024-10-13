@@ -17,16 +17,31 @@ const Images: Array<VideoImageType> = [
 const Lessons = () => {
   return (
     <section id="lessons" className="mx-auto w-11/12 my-36 text-gray-100">
-      <motion.div>
-        <div className=" max-w-[600px] mb-16">
+      <div>
+        <motion.div
+          className=" max-w-[600px] mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+        >
           <TextTitle>Become a travel pro in one easy lesson</TextTitle>
-        </div>
+        </motion.div>
         <div className="flex justify-between gap-4 flex-wrap">
           {Images.map((image, index) => (
-            <Card key={index} src={image.src} title={image.title} />
+            <Card
+              key={index}
+              index={index}
+              src={image.src}
+              title={image.title}
+            />
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { VideoImageType } from "../../../shared/types";
 import Navbar from "./components/Navbar/Navbar";
 import Find from "../../../assets/icons/find.svg";
@@ -6,6 +7,8 @@ import video2 from "../../../assets/videos/2.mp4";
 import video3 from "../../../assets/videos/3.mp4";
 import Video from "./Video";
 import TextTitle from "../../../shared/TextTitles";
+import Text from "../../../shared/Text";
+import Button from "../../../shared/Button";
 
 const videos: Array<VideoImageType> = [
   {
@@ -28,22 +31,32 @@ const NewBook = () => {
       <Navbar />
       <section id="newbook" className="mx-auto w-11/12 mt-24">
         <div className="mb-36">
-          <span className="inline-block uppercase text-xs font-bold mb-10 py-3 px-8 bg-gray-100 rounded-full bg-opacity-70">
+          <motion.span
+            className="inline-block uppercase text-xs font-bold mb-10 py-3 px-8 bg-gray-100 rounded-full bg-opacity-70"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             New Book
-          </span>
-          <div className="max-w-[300px]">
-            <TextTitle>Mother earth hosts our travels</TextTitle>
-          </div>
-          <p className="mb-10 text-xs max-w-md">
+          </motion.span>
+          <TextTitle className="max-w-[300px]">
+            Mother earth hosts our travels
+          </TextTitle>
+          <Text className="max-w-md">
             There are not many cities that have experienced such social and
             political extremes in recent history as Amsterdam. In the 20th
             century alone, Amsterdam faced the atrocities of war for the first
             time in 400 years, became the radical center of 1960s social
             movements and witnessed a complete
-          </p>
-          <button className="px-20 py-6 uppercase font-bold text-xs bg-primary-100 rounded-lg hover:bg-primary-200 duration-300 ">
+          </Text>
+          <Button className=" bg-primary-100 hover:bg-primary-200 duration-300">
             Buy New Book
-          </button>
+          </Button>
         </div>
         <div className="sm:flex drop-shadow-sm">
           <label
@@ -56,7 +69,19 @@ const NewBook = () => {
               type="text"
               name="search"
             />
-            <img className="w-[20px] h-[20px]" src={Find} alt="find" />
+            <motion.img
+              className="w-[20px] h-[20px]"
+              src={Find}
+              alt="find"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5 }}
+              variants={{
+                hidden: { scale: 1.5 },
+                visible: { scale: 1 },
+              }}
+            />
           </label>
 
           <Video videos={videos} />
