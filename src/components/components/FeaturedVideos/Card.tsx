@@ -73,6 +73,7 @@ const Card = ({ images }: Props) => {
                     .src
                 }
                 alt={image.title}
+                draggable="false"
               />
               <AnchorLink
                 href="#newbook"
