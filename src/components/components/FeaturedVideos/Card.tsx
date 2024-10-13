@@ -40,7 +40,7 @@ const Card = ({ images }: Props) => {
       {images.map((image, index) => (
         <motion.div
           key={index}
-          className="sm:min-w-[700px] xs:min-w-[300px] h-[450px] cursor-grab active:cursor-grabbing relative "
+          className="sm:min-w-[700px] xs:min-w-[300px] h-[450px] relative "
         >
           <AnimatePresence>
             <motion.div
