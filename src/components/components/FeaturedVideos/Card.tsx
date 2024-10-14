@@ -9,7 +9,6 @@ type Props = {
 
 const Card = ({ images }: Props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMouseDown, setIsMouseDown] = useState(false);
 
   useEffect(() => {
     let interval: ReturnType<typeof setTimeout>;
@@ -18,22 +17,12 @@ const Card = ({ images }: Props) => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     };
 
-    if (!isMouseDown) {
-      interval = setInterval(updateIndex, 5000);
-    }
+    interval = setInterval(updateIndex, 2000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [images.length, isMouseDown]);
-
-  const handleMouseDown = () => {
-    setIsMouseDown(true);
-  };
-
-  const handleMouseUp = () => {
-    setIsMouseDown(false);
-  };
+  }, [images.length]);
 
   return (
     <div className=" flex justify-center items-center overflow-hidden gap-10">
@@ -63,8 +52,6 @@ const Card = ({ images }: Props) => {
               transition={{
                 x: { type: "spring", bounce: 0 },
               }}
-              onMouseDown={handleMouseDown}
-              onMouseUp={handleMouseUp}
             >
               <motion.img
                 className="w-full h-full object-cover rounded-lg "
